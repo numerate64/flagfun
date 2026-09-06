@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore world flags, test your knowledge, and discover a new flag every week." />
+    <title>FlagFun · World flags, made fun</title>
+    <link rel="preconnect" href="https://flagcdn.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#explore" aria-label="FlagFun home"><span>⚑</span> FlagFun</a>
+      <div class="header-tools">
+        <div class="local-time" aria-live="polite"><span class="time-label">YOUR LOCAL TIME</span><strong id="clock">Loading…</strong></div>
+        <button id="themeToggle" class="icon-button" type="button" aria-label="Switch color theme" title="Switch color theme">☾</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="site-title">
+        <p class="eyebrow">A tiny trip around the world</p>
+        <h1 id="site-title">Learn the world,<br /><em>one flag at a time.</em></h1>
+        <p class="hero-copy">Explore flags from countries and territories, put your knowledge to the test, and meet a fresh flag every Sunday.</p>
+      </section>
+
+      <nav class="tabs" aria-label="FlagFun sections" role="tablist">
+        <button class="tab active" id="explore-tab" data-tab="explore" role="tab" aria-selected="true">Explore flags</button>
+        <button class="tab" id="quiz-tab" data-tab="quiz" role="tab" aria-selected="false">Quiz <span id="scoreBadge">0 pts</span></button>
+        <button class="tab" id="weekly-tab" data-tab="weekly" role="tab" aria-selected="false">Flag of the week</button>
+      </nav>
+
+      <section class="panel active" id="explore" role="tabpanel" aria-labelledby="explore-tab">
+        <div class="section-heading">
+          <div><p class="eyebrow">Explore</p><h2>Where will you go next?</h2></div>
+          <label class="search"><span>⌕</span><input id="flagSearch" type="search" placeholder="Find a country or territory" autocomplete="off" /></label>
+        </div>
+        <div class="feature-card" id="featureCard">
+          <button id="previousFlag" class="arrow" aria-label="Previous flag">←</button>
+          <div class="flag-stage"><img id="exploreFlag" alt="" /><span class="flag-shadow"></span></div>
+          <div class="feature-info"><p class="eyebrow">Today's discovery</p><h3 id="exploreName">Loading flags…</h3><p id="exploreCode">Please wait a moment.</p><button id="randomFlag" class="text-button" type="button">Surprise me <span>↗</span></button></div>
+          <button id="nextFlag" class="arrow" aria-label="Next flag">→</button>
+        </div>
+        <p class="collection-note" id="collectionNote">Loading the collection…</p>
+        <div class="flag-grid" id="flagGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="panel" id="quiz" role="tabpanel" aria-labelledby="quiz-tab" hidden>
+        <div class="quiz-layout">
+          <div class="quiz-intro"><p class="eyebrow">Quiz time</p><h2>Can you name this flag?</h2><p>Choose the correct country or territory. Every correct answer earns 10 points.</p><div class="score-card"><span>Your score</span><strong id="quizScore">0</strong><small>points</small></div><button id="resetScore" class="quiet-button" type="button">Reset score</button></div>
+          <div class="quiz-card" id="quizCard">
+            <div class="quiz-progress"><span id="questionNumber">Question 1</span><span id="streak">0 streak</span></div>
+            <img id="quizFlag" alt="Which flag is this?" />
+            <div class="answers" id="answers"></div>
+            <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
+            <button id="nextQuestion" class="primary-button" type="button" hidden>Next flag →</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="weekly" role="tabpanel" aria-labelledby="weekly-tab" hidden>
+        <div class="weekly-wrap"><div class="weekly-copy"><p class="eyebrow">Sunday spotlight</p><h2>Flag of the week</h2><p>A fresh pick arrives at midnight on Sunday in your local time.</p><div class="countdown" id="weeklyCountdown">Calculating next reset…</div></div><article class="weekly-card"><span class="week-tag" id="weekTag">THIS WEEK'S FLAG</span><img id="weeklyFlag" alt="" /><h3 id="weeklyName">Loading…</h3><p id="weeklyCode"></p><button id="shareWeekly" class="text-button" type="button">Share this flag <span>↗</span></button></article></div>
+      </section>
+    </main>
+    <footer>Made for curious minds · Flags supplied by FlagCDN</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
